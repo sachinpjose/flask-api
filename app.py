@@ -11,7 +11,7 @@ class HelloWorld(Resource):
 
     def get(self, product, price):
         # return names[name]
-        return {"message": "Product added successfully" , "data": "The price of the product {} is  {}".format(product, price)}
+        return {"Product": {product, price}}
 
 api.add_resource(HelloWorld, "/add/<string:product>/<int:price>")
 
