@@ -13,7 +13,7 @@ class HelloWorld(Resource):
         # return names[name]
         return {"message": "Product added successfully" , "data": "The price of the product {} is  {}".format(product, price)}
 
-api.add_resource(HelloWorld, "/hi/<string:product>/<int:price>")
+api.add_resource(HelloWorld, "/add/<string:product>/<int:price>")
 
 if __name__ == '__main__':
     app.run(debug=True)
