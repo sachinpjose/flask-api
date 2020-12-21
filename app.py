@@ -11,9 +11,9 @@ class HelloWorld(Resource):
 
     def get(self, product, price):
         # return names[name]
-        return {"Product": {product, price}}
+        return {"product": [product, price]}
 
-api.add_resource(HelloWorld, "/add/<string:product>/<int:price>")
+api.add_resource(HelloWorld, "/prodcuts/<string:product>/<int:price>")
 
 if __name__ == '__main__':
     app.run(debug=True)
