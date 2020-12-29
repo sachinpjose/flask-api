@@ -10,7 +10,7 @@ parser.add_argument('price', help= "Price of the product is required", required=
 parser.add_argument('title',help= "Name of the product is required", required=True)
 
 
-dummy_products = {}
+dummy_products = []
 
 class Products(Resource):
 
@@ -18,11 +18,9 @@ class Products(Resource):
         return dummy_products
 
     def post(self):
-        pdt_id = uuid.uuid1()
         product = parser.parse_args()
-        dummy_products[str(pdt_id)] = {'title': product['title'], 'price': product['price']}
-        print(dummy_products)
-        return dummy_products[str(pdt_id)], 201
+        dummy_products.append({'title': product['title'], 'price': product['price']})
+        return {'title': product['title'], 'price': product['price']}, 201
 
 
 api.add_resource(Products, "/products")
